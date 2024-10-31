@@ -1,8 +1,5 @@
 #pragma once
 
-/* Returns the pointer to a function or variable in the .text section if it is relative to GetIp */
-#define G_PTR( x )	( ULONG_PTR )( GetIp( ) - ( ( ULONG_PTR ) & GetIp - ( ULONG_PTR ) x ) )
-
 /* Cast as a function or a global variable within a specific location of the .text section */
 #define D_SEC( x ) 	__attribute__(( section( ".text$" #x ) ))
 

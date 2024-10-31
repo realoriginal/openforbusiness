@@ -19,9 +19,9 @@ else()
 
 	# Adjust the entrypoint depending on the incoming architecture
 	if ( "${CMAKE_SIZEOF_VOID_P}" STREQUAL "8" )
-		set( CMAKE_SHELLCODE_L_FLAGS "${CMAKE_SHELLCODE_L_FLAGS}" -Wl,-eEntry )
+		set( CMAKE_SHELLCODE_L_FLAGS "${CMAKE_SHELLCODE_L_FLAGS}" -Wl,-eEfiMain )
 	else()
-		set( CMAKE_SHELLCODE_L_FLAGS "${CMAKE_SHELLCODE_L_FLAGS}" -Wl,-e_Entry )
+		set( CMAKE_SHELLCODE_L_FLAGS "${CMAKE_SHELLCODE_L_FLAGS}" -Wl,-e_EfiMain )
 	endif()
 
         # Add the compile flags

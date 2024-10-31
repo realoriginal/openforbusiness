@@ -31,11 +31,10 @@ include("cmake/shellcode.cmake")
 # Target: openforbusiness
 set(openforbusiness_SOURCES
 	cmake.toml
-	"src/Entry.c"
-	"src/GetIp.c"
+	"src/EfiMain.c"
+	"src/End.c"
 	"src/Hash.c"
 	"src/Pe.c"
-	"src/Peb.c"
 	"src/musl/memcpy.c"
 	"src/musl/memset.c"
 )
@@ -44,6 +43,10 @@ add_shellcode_executable(openforbusiness)
 
 target_sources(openforbusiness PRIVATE ${openforbusiness_SOURCES})
 source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${openforbusiness_SOURCES})
+
+target_include_directories(openforbusiness PRIVATE
+	include
+)
 
 get_directory_property(CMKR_VS_STARTUP_PROJECT DIRECTORY ${PROJECT_SOURCE_DIR} DEFINITION VS_STARTUP_PROJECT)
 if(NOT CMKR_VS_STARTUP_PROJECT)

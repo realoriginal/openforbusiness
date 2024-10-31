@@ -16,3 +16,6 @@ type = "shellcode"
 sources = [ 
 	"src/*.c", "src/musl/*.c"
 ]
+include-directories = [
+	"include"
+]
