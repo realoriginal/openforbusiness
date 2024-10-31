@@ -4,8 +4,6 @@ SECTIONS
 	{
 		*( .text$A )
 		*( .text$B )
-		*( .data*  )
-		*( .rdata* )
 		*( .text$C )
 	}
 }
