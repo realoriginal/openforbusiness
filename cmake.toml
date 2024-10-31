@@ -1,0 +1,18 @@
+# Reference: https://build-cpp.github.io/cmkr/cmake-toml
+[cmake]
+version = "3.19"
+cmkr-include = "cmake/cmkr.cmake"
+
+[project]
+name = "openforbusiness"
+include-after = [ "cmake/shellcode.cmake" ]
+
+[template.shellcode]
+type = "executable"
+add-function = "add_shellcode_executable"
+
+[target.openforbusiness]
+type = "shellcode"
+sources = [ 
+	"src/*.c", "src/musl/*.c"
+]
